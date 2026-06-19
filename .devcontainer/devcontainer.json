@@ -1,0 +1,8 @@
+{
+  "name": "Kali Linux",
+  "image": "kalilinux/kali-rolling",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+  "postCreateCommand": "apt-get update && apt-get install -y kali-linux-headless"
+}
