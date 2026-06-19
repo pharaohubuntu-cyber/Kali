@@ -1,8 +1,15 @@
 {
-  "name": "Kali Linux",
+  "name": "Kali Linux GUI",
   "image": "kalilinux/kali-rolling",
   "features": {
     "ghcr.io/devcontainers/features/docker-in-docker:2": {}
   },
-  "postCreateCommand": "apt-get update && apt-get install -y kali-linux-headless"
+  "forwardPorts": [6080],
+  "portsAttributes": {
+    "6080": {
+      "label": "Kali Desktop (noVNC)",
+      "onAutoForward": "openBrowser"
+    }
+  },
+  "postCreateCommand": "bash .devcontainer/setup-gui.sh"
 }
